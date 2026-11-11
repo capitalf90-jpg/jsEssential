@@ -1,20 +1,13 @@
-// Global scope
-var globalVar = "I'm a global variable";
-let globalLet = "I'm also global, but scoped with let";
-const globalConst = "I'm a global constant";
+function calculateArea() {
+  const lengthValue = parseFloat(document.getElementById("length").value);
+  const widthValue = parseFloat(document.getElementById("width").value);
+  const resultElement = document.getElementById("result");
 
-{
-  // Block scope
-  var blockVar = "I'm a block-scoped var";
-  let blockLet = "I'm a block-scoped let";
-  const blockConst = "I'm a block-scoped const";
+  if (Number.isNaN(lengthValue) || Number.isNaN(widthValue) || lengthValue <= 0 || widthValue <= 0) {
+    resultElement.textContent = "Please enter valid positive numbers for length and width.";
+    return;
+  }
+
+  const area = lengthValue * widthValue;
+  resultElement.textContent = `The area of the rectangle is: ${area}`;
 }
-
-// Global scope
-console.log(globalVar); // Output: "I'm a global variable"
-console.log(globalLet); // Output: "I'm also global, but scoped with let"
-console.log(globalConst); // Output: "I'm a global constant"
-
-//Block Scope
-console.log(blockVar);
-console.log(blockLet);
