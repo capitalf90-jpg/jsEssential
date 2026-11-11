@@ -1,21 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Restaurant Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body>
- <h1>Restaurant Menu Iteration</h1>
-    <h2>Breakfast Menu</h2>
-    <div id="breakfastTotalItems"></div>
-    <div id="breakfastMenuItems"></div>
+<body class="bg-light">
+  <main class="container py-5">
+    <h1 class="mb-4 text-center">Restaurant Menu Iteration</h1>
 
-    <h2>Main Course Menu</h2>
-    <div id="maincourseTotalItems"></div>
-    <div id="maincourseMenuItems"></div>
+    <div class="row g-4">
+      <section class="col-12 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title h4 mb-3">Breakfast Menu</h2>
+            <div id="breakfastTotalItems"></div>
+            <div id="breakfastMenuItems"></div>
+          </div>
+        </div>
+      </section>
 
-    <h2>Dessert Menu</h2>
-    <div id="dessertTotalItems"></div>
-    <div id="dessertMenuItems"></div>
-    <script src="./restaurant_menu.js"></script>
+      <section class="col-12 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title h4 mb-3">Main Course Menu</h2>
+            <div id="maincourseTotalItems"></div>
+            <div id="maincourseMenuItems"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="col-12 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title h4 mb-3">Dessert Menu</h2>
+            <div id="dessertTotalItems"></div>
+            <div id="dessertMenuItems"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="./restaurant_menu.js"></script>
 </body>
 </html>
