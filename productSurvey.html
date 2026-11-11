@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    form, #userInfo {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    #userInfo {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Customer Feedback Form</h1>
+
+  <form id="feedbackForm">
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" min="1" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
+
+    <label for="job">Job</label>
+    <input type="text" id="job">
+
+    <label for="designation">Designation</label>
+    <input type="text" id="designation">
+
+    <label for="productType">Product Type</label>
+    <select id="productType" required>
+      <option value="">Select a product</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Mobile">Mobile Phone</option>
+      <option value="Tablet">Tablet</option>
+    </select>
+
+    <label for="feedbackText">Feedback</label>
+    <textarea id="feedbackText" rows="4" required></textarea>
+
+    <button type="submit">Submit Feedback</button>
+
+  </form>
+
+
+  <!-- Display submitted information -->
+
+  <div id="userInfo">
+
+    <h2>Submitted Information</h2>
+
+    <p><strong>Name:</strong> <span id="userName"></span></p>
+    <p><strong>Age:</strong> <span id="userAge"></span></p>
+    <p><strong>Email:</strong> <span id="userEmail"></span></p>
+    <p><strong>Job:</strong> <span id="userJob"></span></p>
+    <p><strong>Designation:</strong> <span id="userDesignation"></span></p>
+    <p><strong>Product:</strong> <span id="userProductChoice"></span></p>
+    <p><strong>Feedback:</strong> <span id="userFeedback"></span></p>
+
+  </div>
+
+
+  <script>
+
+    // Function to handle feedback submission
+    function submitFeedback() {
+
+      // Get input values
+      const name = document.getElementById("name").value.trim();
+      const age = document.getElementById("age").value;
+      const email = document.getElementById("email").value.trim();
+      const job = document.getElementById("job").value.trim();
+      const designation = document.getElementById("designation").value.trim();
+
+      const productType = document.getElementById("productType");
+      const feedbackText = document.getElementById("feedbackText").value.trim();
+
+      // Basic validation
+      if (!name || !age || !email || !productType.value || !feedbackText) {
+        alert("Please complete all required fields.");
+        return;
+      }
+
+      // Display information safely
+      document.getElementById("userName").textContent = name;
+      document.getElementById("userAge").textContent = age;
+      document.getElementById("userEmail").textContent = email;
+      document.getElementById("userJob").textContent = job;
+      document.getElementById("userDesignation").textContent = designation;
+
+      document.getElementById("userProductChoice").textContent =
+        productType.selectedOptions[0].textContent;
+
+      document.getElementById("userFeedback").textContent = feedbackText;
+
+      // Show submitted information
+      document.getElementById("userInfo").style.display = "block";
+    }
+
+
+    // Listen for form submission
+    const feedbackForm = document.getElementById("feedbackForm");
+
+    feedbackForm.addEventListener("submit", function(event) {
+
+      // Prevent browser default form submission
+      event.preventDefault();
+
+      // Execute submission function
+      submitFeedback();
+
+    });
+
+  </script>
+
+</body>
+</html>
